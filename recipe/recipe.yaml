@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.0.0"
+  version: "2.0.0"
 
 package:
   name: openfeature-flagd-core
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/o/openfeature-flagd-core/openfeature_flagd_core-${{ version }}.tar.gz
-  sha256: e843d395de54dbc83d4d46fcee6cbc276204f3dfe5e8cc24ae3ea7247479c232
+  sha256: b416396949ee766f791ade3c5880fb15407b774349ee13b72f5e76ccfe932ca8
 
 build:
   number: 0
@@ -24,11 +24,12 @@ requirements:
     - uv-build >=0.9.0,<0.10.0
   run:
     - python >=${{ python_min }}
-    - openfeature-flagd-api >=1.0.0,<2
+    - openfeature-flagd-api <2,>=1.0.0
     - openfeature-sdk >=0.8.2
-    - mmh3 >=5.0.0,<6.0.0
+    - mmh3 <6.0.0,>=5.0.0
     - panzi-json-logic ==1.0.1
-    - semver >=3,<4
+    - semver <4,>=3
+    - cbor2 <6.0.0,>=5.6.5
 
 tests:
   - python:
@@ -51,3 +52,4 @@ extra:
   recipe-maintainers:
     - rxm7706
     - pb01ka
+    - jsmolic
